@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('animes.index')" :active="request()->routeIs('animes.index')">
                         Animes
                     </x-nav-link>
+                    <x-nav-link :href="route('mangas.index')" :active="request()->routeIs('mangas.index')">
+                        Mangas
+                    </x-nav-link>
                 </div>
             </div>
 

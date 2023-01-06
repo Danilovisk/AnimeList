@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\MangaController;
 use App\Models\Anime;
+use App\Models\Manga;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $animes = Anime::all();
-    return view('welcome', compact('animes'));
+    $mangas = Manga::all();
+    return view('welcome', compact('animes','mangas'));
 });
 
 Route::get('/dashboard', function () {
@@ -26,6 +29,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('animes',AnimeController::class);
+Route::resource('mangas',MangaController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

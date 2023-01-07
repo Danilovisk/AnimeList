@@ -24,7 +24,7 @@ Route::get('/', function () {
     $animes = Anime::all();
     $mangas = Manga::all();
     $studios = Studio::all();
-    return view('welcome', compact('animes','mangas'));
+    return view('welcome', compact('animes','mangas','studios'));
 });
 
 Route::get('/dashboard', function () {

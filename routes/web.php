@@ -3,8 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\MangaController;
+use App\Http\Controllers\StudioController;
 use App\Models\Anime;
 use App\Models\Manga;
+use App\Models\Studio;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $animes = Anime::all();
     $mangas = Manga::all();
+    $studios = Studio::all();
     return view('welcome', compact('animes','mangas'));
 });
 
@@ -30,6 +33,7 @@ Route::get('/dashboard', function () {
 
 Route::resource('animes',AnimeController::class);
 Route::resource('mangas',MangaController::class);
+Route::resource('studios',StudioController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

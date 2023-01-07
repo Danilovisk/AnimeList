@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('mangas.index')" :active="request()->routeIs('mangas.index')">
                         Mangas
                     </x-nav-link>
+                    <x-nav-link :href="route('studios.index')" :active="request()->routeIs('studios.index')">
+                        Studios
+                    </x-nav-link>
                 </div>
             </div>
 

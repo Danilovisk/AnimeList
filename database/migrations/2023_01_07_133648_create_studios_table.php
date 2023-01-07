@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('animes', function (Blueprint $table) {
+        Schema::create('studios', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->text('studio');
-            $table->integer('episodes');
-            $table->dateTime('started_at');
-            $table->boolean('finished');
-
+            $table->string('name');
+            $table->dateTime('established_at');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animes');
+        Schema::dropIfExists('studios');
     }
 };
